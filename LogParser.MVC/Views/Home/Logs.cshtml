@@ -1,0 +1,87 @@
+﻿@model IEnumerable<LogParserMVC.Models.LogLineModel>
+
+@{
+    ViewBag.Title = "Logs";
+}
+
+<h2>Logs</h2>
+
+<input type="button" class="btn btn-info" value="Scan" onclick="location.href='@Url.Action("Scan","Home")'"/>
+<input type="button" class="btn btn-info" value="Create TXT" onclick="location.href='@Url.Action("CreateText","Home")'" />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediaItem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IpClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientVersion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Platform)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IspProvider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MediaItem)
+        </td>
+        <td>
+            @Html.ActionLink(@""+item.IpClient,"EditIpDetail", new { id = item.IpDetailId})
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientVersion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Platform)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IspProvider)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+    </tr>
+}
+
+</table>
