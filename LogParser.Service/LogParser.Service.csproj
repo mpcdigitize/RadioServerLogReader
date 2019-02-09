@@ -51,8 +51,8 @@
       <Project>{e82150c4-f777-430c-a455-4fdf8ae1bf44}</Project>
       <Name>LogParser.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LogParserMVC.Domain\LogParser.Domain.csproj">
-      <Project>{8ce86d6d-023c-4d1e-b6df-f465c85154bc}</Project>
+    <ProjectReference Include="..\LogParser.Domain\LogParser.Domain.csproj">
+      <Project>{b62bc962-9387-40ae-be10-f74745ef1e9f}</Project>
       <Name>LogParser.Domain</Name>
     </ProjectReference>
   </ItemGroup>

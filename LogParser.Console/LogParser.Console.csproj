@@ -106,6 +106,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LogParser.Domain\LogParser.Domain.csproj">
+      <Project>{b62bc962-9387-40ae-be10-f74745ef1e9f}</Project>
+      <Name>LogParser.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogParser.Service\LogParser.Service.csproj">
       <Project>{d5fd7cf9-e0d0-4d44-bbac-d55e97f5de03}</Project>
       <Name>LogParser.Service</Name>
@@ -113,10 +117,6 @@
     <ProjectReference Include="..\LogParser.Data\LogParser.Data.csproj">
       <Project>{e82150c4-f777-430c-a455-4fdf8ae1bf44}</Project>
       <Name>LogParser.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LogParserMVC.Domain\LogParser.Domain.csproj">
-      <Project>{8CE86D6D-023C-4D1E-B6DF-F465C85154BC}</Project>
-      <Name>LogParser.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

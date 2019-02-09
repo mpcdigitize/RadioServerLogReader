@@ -229,13 +229,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LogParser.Domain\LogParser.Domain.csproj">
+      <Project>{b62bc962-9387-40ae-be10-f74745ef1e9f}</Project>
+      <Name>LogParser.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogParser.Service\LogParser.Service.csproj">
       <Project>{D5FD7CF9-E0D0-4D44-BBAC-D55E97F5DE03}</Project>
       <Name>LogParser.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LogParserMVC.Domain\LogParser.Domain.csproj">
-      <Project>{8ce86d6d-023c-4d1e-b6df-f465c85154bc}</Project>
-      <Name>LogParser.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
