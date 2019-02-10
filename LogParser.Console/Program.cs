@@ -21,25 +21,15 @@ namespace LogParser
 
             var svc = new AppService();
 
+            string ip = "100.2.132.189";
 
+            var result = svc.GetIpHistoryByIpNumber(ip);
 
-            //var setting = new LocalSetting();
-            var setting = svc.GetSettings();
-
-
-            Console.WriteLine("Val: " + setting.SettingId + " == " + setting.FolderPath + " == " + setting.FileExtension);
-
-            setting.FileExtension = @"ZIP";
-            setting.FolderPath = @"AAAAAAAAA";
-
-            svc.SaveSetting(setting);
-
-            var setting1 = svc.GetSettings();
-
-
-            Console.WriteLine("Val: " + setting1.SettingId + " == " + setting1.FolderPath + " == " + setting1.FileExtension);
-
-
+            foreach (var item in result)
+            {
+                Console.WriteLine(item.IpClient + " == " + item.MediaItem + " == " + item.Country);
+            }
+            
 
 
             Console.WriteLine("done");

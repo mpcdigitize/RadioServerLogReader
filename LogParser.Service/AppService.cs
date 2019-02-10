@@ -145,6 +145,32 @@ namespace LogParser.Service
 
         }
 
+        public IEnumerable<LogLineView> GetIpHistoryByIpNumber(string ipNumber)
+        {
+            var repo = new DisconnectedRepository();
+            var ipDetails = repo.GetIpDetails();
+            var lines = repo.GetLogsByIpNumber(ipNumber);
+            var providers = new Providers(ipDetails);
+
+
+
+            var result = lines.Select(p => new LogLineView
+            {
+                Date = p.Date,
+                Time = p.Time,
+                IpClient = p.IpClient,
+                MediaItem = p.MediaItem,
+                IspProvider = providers.GetValue(p.IpClient).IspProvider,
+                Country = providers.GetValue(p.IpClient).Country,
+                State = providers.GetValue(p.IpClient).State,
+                Location = providers.GetValue(p.IpClient).Location,
+                IpDetailId = providers.GetValue(p.IpClient).IpDetailId
+
+            });
+
+            return result;
+        }
+
 
         public void CreateLocalSetting(LocalSetting localSetting)
         {

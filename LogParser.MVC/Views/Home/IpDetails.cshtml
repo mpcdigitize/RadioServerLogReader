@@ -32,7 +32,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.IpNumber)
+            @Html.ActionLink(@"" + item.IpNumber,"IpHistory","Home", new {ipNumber = item.IpNumber },null)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IspProvider)

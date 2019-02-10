@@ -165,6 +165,21 @@ namespace LogParser.Data
 
         }
 
+        public IEnumerable<LogLine> GetLogsByIpNumber(string ipNumber)
+        {
+
+            using (var context = new AppContext())
+            {
+                var result = context.LogLines
+                                .Where(p => p.IpClient == ipNumber).ToList();
+                return result;
+
+
+            }
+
+
+        }
+
 
         public IEnumerable<LogLine> GetLogLines()
         {

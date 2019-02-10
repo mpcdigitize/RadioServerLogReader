@@ -54,6 +54,34 @@ namespace LogParserMVC.Controllers
             return View(result);
         }
 
+        public ActionResult IpHistory(string ipNumber)
+        {
+            var svc = new AppService();
+            //string ip = "100.2.132.189";
+            var lines = svc.GetIpHistoryByIpNumber(ipNumber);
+
+            ViewBag.LinesCount = lines.Count();
+
+            TempData["msg"] = "<script>alert(" + lines.Count() + ");</script>";
+
+            var result = lines.Select(p => new LogLineModel
+            {
+                Date = p.Date,
+                Time = p.Time,
+                IpClient = p.IpClient,
+                MediaItem = p.MediaItem,
+                IspProvider = p.IspProvider,
+                Country = p.Country,
+                State = p.State,
+                Location = p.Location,
+                IpDetailId = p.IpDetailId
+
+            });
+
+
+            return View(result);
+        }
+
 
         public ActionResult EditIpDetail(string id)
         {

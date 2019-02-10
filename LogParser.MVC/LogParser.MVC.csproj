@@ -211,6 +211,7 @@
     <Content Include="Views\Shared\_IpDetail.cshtml" />
     <Content Include="Views\Home\Settings.cshtml" />
     <Content Include="Views\Home\EditIpDetail.cshtml" />
+    <Content Include="Views\Home\IpHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
