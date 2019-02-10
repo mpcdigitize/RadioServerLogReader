@@ -209,7 +209,6 @@
     <Content Include="Views\Home\IpDetails.cshtml" />
     <Content Include="Views\Home\CreateProvider.cshtml" />
     <Content Include="Views\Shared\_IpDetail.cshtml" />
-    <Content Include="Views\Home\EditIpDetail.cshtml" />
     <Content Include="Views\Home\Settings.cshtml" />
   </ItemGroup>
   <ItemGroup>

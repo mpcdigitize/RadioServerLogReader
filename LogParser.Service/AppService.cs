@@ -97,15 +97,20 @@ namespace LogParser.Service
         }
 
 
-        public void EditIpDetail(string id,string ipNumber, string ispProvider, string country, string location, string state)
+        public void EditIpDetail(string id, string ipNumber, string ispProvider, string country, string location, string state, bool IsHidden, string alias)
         {
             var repo = new DisconnectedRepository();
-            IpDetail detail = new IpDetail { IpNumber = ipNumber,
-                                            IspProvider = ispProvider,
-                                            Country = country,
-                                            Location = location,
-                                            State = state,
-                                            IpDetailId = new Guid(id)};
+            IpDetail detail = new IpDetail
+            {
+                IpNumber = ipNumber,
+                IspProvider = ispProvider,
+                Country = country,
+                Location = location,
+                State = state,
+                IpDetailId = new Guid(id),
+                IsHidden = IsHidden,
+                Alias = alias
+            };
 
             repo.EditIpDetail(detail);
 
