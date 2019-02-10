@@ -68,7 +68,10 @@ namespace LogParserMVC.Controllers
                 Location = detail.Location,
                 State = detail.State,
                 Country = detail.Country,
-                IpDetailId = modelId
+                IpDetailId = modelId,
+                IsHidden = detail.IsHidden,
+                Alias = detail.Alias
+
             };
 
 
@@ -94,7 +97,9 @@ namespace LogParserMVC.Controllers
                     model.IspProvider,
                     model.Country,
                     model.Location,
-                    model.State
+                    model.State,
+                    model.IsHidden,
+                    model.Alias
                     );
 
                 return RedirectToAction("Index");
