@@ -73,7 +73,11 @@ namespace LogParser.Service
                         Country = providers.GetValue(p.IpClient).Country,
                         State = providers.GetValue(p.IpClient).State,
                         Location = providers.GetValue(p.IpClient).Location,
-                        IpDetailId = providers.GetValue(p.IpClient).IpDetailId
+                        IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
+                        Client = p.Client,
+                        ClientVersion = p.ClientVersion,
+                        Platform = p.Platform
+
 
             });
 
@@ -164,7 +168,11 @@ namespace LogParser.Service
                 Country = providers.GetValue(p.IpClient).Country,
                 State = providers.GetValue(p.IpClient).State,
                 Location = providers.GetValue(p.IpClient).Location,
-                IpDetailId = providers.GetValue(p.IpClient).IpDetailId
+                IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
+
 
             });
 

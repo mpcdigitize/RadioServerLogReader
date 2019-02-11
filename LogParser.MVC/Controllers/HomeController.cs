@@ -46,7 +46,10 @@ namespace LogParserMVC.Controllers
                 Country = p.Country,
                 State = p.State,
                 Location = p.Location,
-                IpDetailId = p.IpDetailId
+                IpDetailId = p.IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
 
             });
 
@@ -74,7 +77,11 @@ namespace LogParserMVC.Controllers
                 Country = p.Country,
                 State = p.State,
                 Location = p.Location,
-                IpDetailId = p.IpDetailId
+                IpDetailId = p.IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
+
 
             });
 
