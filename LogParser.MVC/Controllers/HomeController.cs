@@ -90,6 +90,139 @@ namespace LogParserMVC.Controllers
         }
 
 
+        public ActionResult SelectedByDate(string date)
+        {
+            var svc = new AppService();
+            //string ip = "100.2.132.189";
+            var lines = svc.GetIpHistoryByDate(date);
+
+            ViewBag.LinesCount = lines.Count();
+
+            //TempData["msg"] = "<script>alert(" + lines.Count() + ");</script>";
+
+            var result = lines.Select(p => new LogLineModel
+            {
+                Date = p.Date,
+                Time = p.Time,
+                IpClient = p.IpClient,
+                MediaItem = p.MediaItem,
+                IspProvider = p.IspProvider,
+                Country = p.Country,
+                State = p.State,
+                Location = p.Location,
+                IpDetailId = p.IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
+
+
+            });
+
+
+            return View(result);
+        }
+
+
+        public ActionResult SelectedByTime(string time)
+        {
+            var svc = new AppService();
+            //string ip = "100.2.132.189";
+            var lines = svc.GetIpHistoryByTime(time);
+
+            ViewBag.LinesCount = lines.Count();
+
+            //TempData["msg"] = "<script>alert(" + lines.Count() + ");</script>";
+
+            var result = lines.Select(p => new LogLineModel
+            {
+                Date = p.Date,
+                Time = p.Time,
+                IpClient = p.IpClient,
+                MediaItem = p.MediaItem,
+                IspProvider = p.IspProvider,
+                Country = p.Country,
+                State = p.State,
+                Location = p.Location,
+                IpDetailId = p.IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
+
+
+            });
+
+
+            return View(result);
+        }
+
+
+        public ActionResult SelectedByMedia(string media)
+        {
+            var svc = new AppService();
+            //string ip = "100.2.132.189";
+            var lines = svc.GetIpHistoryByMedia(media);
+
+            ViewBag.LinesCount = lines.Count();
+
+            //TempData["msg"] = "<script>alert(" + lines.Count() + ");</script>";
+
+            var result = lines.Select(p => new LogLineModel
+            {
+                Date = p.Date,
+                Time = p.Time,
+                IpClient = p.IpClient,
+                MediaItem = p.MediaItem,
+                IspProvider = p.IspProvider,
+                Country = p.Country,
+                State = p.State,
+                Location = p.Location,
+                IpDetailId = p.IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
+
+
+            });
+
+
+            return View(result);
+        }
+
+
+        public ActionResult SelectedByClient(string client)
+        {
+            var svc = new AppService();
+            //string ip = "100.2.132.189";
+            var lines = svc.GetIpHistoryByClient(client);
+
+            ViewBag.LinesCount = lines.Count();
+
+            //TempData["msg"] = "<script>alert(" + lines.Count() + ");</script>";
+
+            var result = lines.Select(p => new LogLineModel
+            {
+                Date = p.Date,
+                Time = p.Time,
+                IpClient = p.IpClient,
+                MediaItem = p.MediaItem,
+                IspProvider = p.IspProvider,
+                Country = p.Country,
+                State = p.State,
+                Location = p.Location,
+                IpDetailId = p.IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
+
+
+            });
+
+
+            return View(result);
+        }
+
+
+
         public ActionResult EditIpDetail(string id)
         {
             var svc = new AppService();
