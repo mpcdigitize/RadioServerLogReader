@@ -20,6 +20,8 @@ namespace LogParser.Domain.ViewModel
         public string Location { get; set; }
         public string State { get; set; }
         public Guid IpDetailId { get; set;}
+        public bool IsHidden { get; set; }
+        public string Alias { get; set; }
 
 
     }
