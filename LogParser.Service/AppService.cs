@@ -173,7 +173,8 @@ namespace LogParser.Service
                 IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
                 Client = p.Client,
                 ClientVersion = p.ClientVersion,
-                Platform = p.Platform
+                Platform = p.Platform,
+                IsHidden = providers.GetValue(p.IpClient).IsHidden
 
 
             });
@@ -203,7 +204,8 @@ namespace LogParser.Service
                 IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
                 Client = p.Client,
                 ClientVersion = p.ClientVersion,
-                Platform = p.Platform
+                Platform = p.Platform,
+                IsHidden = providers.GetValue(p.IpClient).IsHidden
 
 
             });
@@ -234,7 +236,8 @@ namespace LogParser.Service
                 IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
                 Client = p.Client,
                 ClientVersion = p.ClientVersion,
-                Platform = p.Platform
+                Platform = p.Platform,
+                IsHidden = providers.GetValue(p.IpClient).IsHidden
 
 
             });
@@ -265,7 +268,8 @@ namespace LogParser.Service
                 IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
                 Client = p.Client,
                 ClientVersion = p.ClientVersion,
-                Platform = p.Platform
+                Platform = p.Platform,
+                IsHidden = providers.GetValue(p.IpClient).IsHidden
 
 
             });
@@ -296,7 +300,8 @@ namespace LogParser.Service
                 IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
                 Client = p.Client,
                 ClientVersion = p.ClientVersion,
-                Platform = p.Platform
+                Platform = p.Platform,
+                IsHidden = providers.GetValue(p.IpClient).IsHidden
 
 
             });
