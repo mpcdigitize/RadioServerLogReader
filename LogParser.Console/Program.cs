@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using LogParser.Domain.Model;
+using LogParser.Data;
 
 namespace LogParser
 {
@@ -19,18 +20,19 @@ namespace LogParser
         static void Main(string[] args)
         {
 
-            var svc = new AppService();
+            var seed = new DataSeed();
 
-            string ip = "100.2.132.189";
+            var details = seed.SeedIpDetail();
 
-            var result = svc.GetIpHistoryByIpNumber(ip);
+            var repo = new DisconnectedRepository();
 
-            foreach (var item in result)
+
+            foreach (var item in details)
             {
-                Console.WriteLine(item.IpClient + " == " + item.MediaItem + " == " + item.Country);
-            }
-            
+                item.IsHidden = false;
 
+                repo.AddNewIpDetail(item);
+            }
 
             Console.WriteLine("done");
 
