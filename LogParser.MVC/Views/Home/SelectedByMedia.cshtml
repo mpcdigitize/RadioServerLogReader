@@ -1,13 +1,8 @@
 ﻿@model IEnumerable<LogParserMVC.Models.LogLineModel>
 
-@{
-    ViewBag.Title = "Logs";
-}
-
-<h2>Logs</h2>
-
-<input type="button" class="btn btn-info" value="Scan" onclick="location.href='@Url.Action("Scan","Home")'"/>
-<input type="button" class="btn btn-info" value="Create TXT" onclick="location.href='@Url.Action("CreateText","Home")'" />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -43,25 +38,28 @@
         <th>
             @Html.DisplayNameFor(model => model.State)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IpDetailId)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink(item.Date, "SelectedByDate", new { date = item.Date })
+            @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
-            @Html.ActionLink(item.Time, "SelectedByTime", new { time = item.Time })
+            @Html.DisplayFor(modelItem => item.Time)
         </td>
         <td>
-            @Html.ActionLink(item.MediaItem, "SelectedByMedia", new { media = item.MediaItem })
+            @Html.DisplayFor(modelItem => item.MediaItem)
         </td>
         <td>
-            @Html.ActionLink(item.IpClient,"EditIpDetail", new { id = item.IpDetailId})
+            @Html.DisplayFor(modelItem => item.IpClient)
         </td>
         <td>
-            @Html.ActionLink(item.Client, "SelectedByClient", new { client = item.Client })
+            @Html.DisplayFor(modelItem => item.Client)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ClientVersion)
@@ -80,6 +78,14 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IpDetailId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }
