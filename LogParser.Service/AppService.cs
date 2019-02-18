@@ -64,26 +64,27 @@ namespace LogParser.Service
 
 
 
-            var result = lines.Select(p => new LogLineView {
-                        Date = p.Date,
-                        Time = p.Time,
-                        IpClient = p.IpClient,
-                        MediaItem = p.MediaItem,
-                        IspProvider = providers.GetValue(p.IpClient).IspProvider,
-                        Country = providers.GetValue(p.IpClient).Country,
-                        State = providers.GetValue(p.IpClient).State,
-                        Location = providers.GetValue(p.IpClient).Location,
-                        IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
-                        Client = p.Client,
-                        ClientVersion = p.ClientVersion,
-                        Platform = p.Platform
+            var result = lines.Select(p => new LogLineView
+            {
+                Date = p.Date,
+                Time = p.Time,
+                IpClient = p.IpClient,
+                MediaItem = p.MediaItem,
+                IspProvider = providers.GetValue(p.IpClient).IspProvider,
+                Country = providers.GetValue(p.IpClient).Country,
+                State = providers.GetValue(p.IpClient).State,
+                Location = providers.GetValue(p.IpClient).Location,
+                IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
 
 
             });
 
-            
+            var selected = result.Where(p => p.IsHidden).ToList();
 
-            return result;
+            return selected;
 
 
         }
@@ -154,6 +155,129 @@ namespace LogParser.Service
             var repo = new DisconnectedRepository();
             var ipDetails = repo.GetIpDetails();
             var lines = repo.GetLogsByIpNumber(ipNumber);
+            var providers = new Providers(ipDetails);
+
+
+
+            var result = lines.Select(p => new LogLineView
+            {
+                Date = p.Date,
+                Time = p.Time,
+                IpClient = p.IpClient,
+                MediaItem = p.MediaItem,
+                IspProvider = providers.GetValue(p.IpClient).IspProvider,
+                Country = providers.GetValue(p.IpClient).Country,
+                State = providers.GetValue(p.IpClient).State,
+                Location = providers.GetValue(p.IpClient).Location,
+                IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
+
+
+            });
+
+            return result;
+        }
+
+        public IEnumerable<LogLineView> GetIpHistoryByDate(string date)
+        {
+            var repo = new DisconnectedRepository();
+            var ipDetails = repo.GetIpDetails();
+            var lines = repo.GetLogsByDate(date);
+            var providers = new Providers(ipDetails);
+
+
+
+            var result = lines.Select(p => new LogLineView
+            {
+                Date = p.Date,
+                Time = p.Time,
+                IpClient = p.IpClient,
+                MediaItem = p.MediaItem,
+                IspProvider = providers.GetValue(p.IpClient).IspProvider,
+                Country = providers.GetValue(p.IpClient).Country,
+                State = providers.GetValue(p.IpClient).State,
+                Location = providers.GetValue(p.IpClient).Location,
+                IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
+
+
+            });
+
+            return result;
+        }
+
+
+        public IEnumerable<LogLineView> GetIpHistoryByTime(string time)
+        {
+            var repo = new DisconnectedRepository();
+            var ipDetails = repo.GetIpDetails();
+            var lines = repo.GetLogsByTime(time);
+            var providers = new Providers(ipDetails);
+
+
+
+            var result = lines.Select(p => new LogLineView
+            {
+                Date = p.Date,
+                Time = p.Time,
+                IpClient = p.IpClient,
+                MediaItem = p.MediaItem,
+                IspProvider = providers.GetValue(p.IpClient).IspProvider,
+                Country = providers.GetValue(p.IpClient).Country,
+                State = providers.GetValue(p.IpClient).State,
+                Location = providers.GetValue(p.IpClient).Location,
+                IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
+
+
+            });
+
+            return result;
+        }
+
+
+        public IEnumerable<LogLineView> GetIpHistoryByMedia(string media)
+        {
+            var repo = new DisconnectedRepository();
+            var ipDetails = repo.GetIpDetails();
+            var lines = repo.GetLogsByMedia(media);
+            var providers = new Providers(ipDetails);
+
+
+
+            var result = lines.Select(p => new LogLineView
+            {
+                Date = p.Date,
+                Time = p.Time,
+                IpClient = p.IpClient,
+                MediaItem = p.MediaItem,
+                IspProvider = providers.GetValue(p.IpClient).IspProvider,
+                Country = providers.GetValue(p.IpClient).Country,
+                State = providers.GetValue(p.IpClient).State,
+                Location = providers.GetValue(p.IpClient).Location,
+                IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
+                Client = p.Client,
+                ClientVersion = p.ClientVersion,
+                Platform = p.Platform
+
+
+            });
+
+            return result;
+        }
+
+
+        public IEnumerable<LogLineView> GetIpHistoryByClient(string client)
+        {
+            var repo = new DisconnectedRepository();
+            var ipDetails = repo.GetIpDetails();
+            var lines = repo.GetLogsByClient(client);
             var providers = new Providers(ipDetails);
 
 
