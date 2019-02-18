@@ -101,6 +101,10 @@
     <Compile Include="Migrations\201902040027102_change_settings.Designer.cs">
       <DependentUpon>201902040027102_change_settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902110253322_change_ishidden_prop.cs" />
+    <Compile Include="Migrations\201902110253322_change_ishidden_prop.Designer.cs">
+      <DependentUpon>201902110253322_change_ishidden_prop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -157,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902040027102_change_settings.resx">
       <DependentUpon>201902040027102_change_settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902110253322_change_ishidden_prop.resx">
+      <DependentUpon>201902110253322_change_ishidden_prop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -181,12 +181,75 @@ namespace LogParser.Data
         }
 
 
+        public IEnumerable<LogLine> GetLogsByDate(string date)
+        {
+
+            using (var context = new AppContext())
+            {
+                var result = context.LogLines
+                                .Where(p => p.Date == date).ToList();
+                return result;
+
+
+            }
+
+
+        }
+
+
+        public IEnumerable<LogLine> GetLogsByTime(string time)
+        {
+
+            using (var context = new AppContext())
+            {
+                var result = context.LogLines
+                                .Where(p => p.Time == time).ToList();
+                return result;
+
+
+            }
+
+
+        }
+
+        public IEnumerable<LogLine> GetLogsByMedia(string media)
+        {
+
+            using (var context = new AppContext())
+            {
+                var result = context.LogLines
+                                .Where(p => p.MediaItem == media).ToList();
+                return result;
+
+
+            }
+
+
+        }
+
+
+        public IEnumerable<LogLine> GetLogsByClient(string client)
+        {
+
+            using (var context = new AppContext())
+            {
+                var result = context.LogLines
+                                .Where(p => p.Client == client).ToList();
+                return result;
+
+
+            }
+
+
+        }
+
+
         public IEnumerable<LogLine> GetLogLines()
         {
 
             using (var context = new AppContext())
             {
-                var result = context.LogLines.Take(10);
+                var result = context.LogLines;
                 return result.ToList();
 
 
