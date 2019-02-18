@@ -77,14 +77,15 @@ namespace LogParser.Service
                 IpDetailId = providers.GetValue(p.IpClient).IpDetailId,
                 Client = p.Client,
                 ClientVersion = p.ClientVersion,
-                Platform = p.Platform
+                Platform = p.Platform,
+                IsHidden = providers.GetValue(p.IpClient).IsHidden
 
 
             });
 
-            var selected = result.Where(p => p.IsHidden).ToList();
+            
 
-            return selected;
+            return result;
 
 
         }
