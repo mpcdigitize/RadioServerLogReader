@@ -23,7 +23,7 @@ namespace LogParser.Domain.Model
         public string Location { get; set; }
         public string State { get; set; }
         public string Alias { get; set; }
-        public bool IsHidden { get; set; }
+        public bool IsHidden { get; set; } = false;
 
 
 
