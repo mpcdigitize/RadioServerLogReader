@@ -32,13 +32,16 @@
         <th>
             @Html.DisplayNameFor(model => model.IsHidden)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IpDetailId)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink(@"" + item.IpNumber, "IpHistory", "Home", new { ipNumber = item.IpNumber }, null)
+            @Html.ActionLink(@"" + item.IpNumber, "EditIpDetail", "Home", new { id = item.IpDetailId }, null)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IspProvider)
@@ -57,6 +60,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsHidden)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IpDetailId)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
