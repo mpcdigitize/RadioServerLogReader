@@ -58,7 +58,7 @@
             @Html.ActionLink(item.MediaItem, "SelectedByMedia", new { media = item.MediaItem })
         </td>
         <td>
-            @Html.ActionLink(item.IpClient,"EditIpDetail", new { id = item.IpDetailId})
+            @Html.ActionLink(item.IpClient, "SelectedByIpNumber", new { ipNumber = item.IpClient})
         </td>
         <td>
             @Html.ActionLink(item.Client, "SelectedByClient", new { client = item.Client })
