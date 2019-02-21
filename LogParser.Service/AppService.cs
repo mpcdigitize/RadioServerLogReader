@@ -18,6 +18,11 @@ namespace LogParser.Service
             var fileProcessor = new FileProcessor();
             var filesToProcess = fileProcessor.FindNewFiles(folderPath);
             var repo = new DisconnectedRepository();
+            var ipDetails = repo.GetIpDetails();
+            List<string> ipNumbers = ipDetails.Select(p => p.IpNumber).ToList();
+            List<string> scannedIpNumbers = new List<string>();
+
+
             Guid id = new Guid();
           
             var logProcessor = new LogProcessor();
@@ -41,14 +46,27 @@ namespace LogParser.Service
 
                 foreach (var logLine in linesToProcess)
                 {
+
+
+                    scannedIpNumbers.Add(logLine.IpClient);
+
                     logLine.LogFileId = id;
+
                     repo.AddNewLogLine(logLine);
 
                 }
 
             }
-            
 
+            var newIpNumbers = scannedIpNumbers.Except(ipNumbers);
+
+            foreach (var item in newIpNumbers)
+            {
+                var ipDetail = new IpDetail();
+                ipDetail.IpNumber = item;
+                repo.AddNewIpDetail(ipDetail);
+                Console.WriteLine(item);
+            }
 
 
 

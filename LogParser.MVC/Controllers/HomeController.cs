@@ -260,7 +260,7 @@ namespace LogParserMVC.Controllers
             var detail = svc.GetIpDetailById(id);
             var modelId = id;
 
-            TempData["msg"] = "<script>alert(" + id + ");</script>";
+            
 
             IpDetailModel detailView = new IpDetailModel
             {
@@ -303,7 +303,7 @@ namespace LogParserMVC.Controllers
                     model.Alias
                     );
 
-                return RedirectToAction("Index");
+                return RedirectToAction("IpDetails");
 
             }
 
