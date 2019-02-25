@@ -20,19 +20,27 @@ namespace LogParser
         static void Main(string[] args)
         {
 
-             var seed = new DataSeed();
-
-             var details = seed.SeedIpDetail();
-            //var svc = new AppService();
 
             var repo = new DisconnectedRepository();
-            //svc.ScanFolder(@"C:\LogFiles\one");
+            var details = repo.GetIpDetails();
+            var backup = new BackupWriter(details);
 
-            foreach (var item in details)
-            {
-                Console.WriteLine(item.IpNumber);
-                repo.AddNewIpDetail(item);
-            }
+
+            backup.CreateBackup();
+
+            // var seed = new DataSeed();
+
+            // var details = seed.SeedIpDetail();
+            ////var svc = new AppService();
+
+            //var repo = new DisconnectedRepository();
+            ////svc.ScanFolder(@"C:\LogFiles\one");
+
+            //foreach (var item in details)
+            //{
+            //    Console.WriteLine(item.IpNumber);
+            //    repo.AddNewIpDetail(item);
+            //}
 
 
             Console.WriteLine("done");
