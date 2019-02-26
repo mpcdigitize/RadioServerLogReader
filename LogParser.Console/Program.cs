@@ -20,13 +20,29 @@ namespace LogParser
         static void Main(string[] args)
         {
 
+            var reader = new BackupReader();
 
+            var details = reader.ParseFile();
+
+            foreach (var item in details)
+            {
+                Console.WriteLine(item.IpNumber + " - " + item.Location + " - " + item.IspProvider + " - " + item.IsHidden);
+            }
+
+            /*
             var repo = new DisconnectedRepository();
             var details = repo.GetIpDetails();
             var backup = new BackupWriter(details);
 
 
+
             backup.CreateBackup();
+            */
+
+
+
+
+
 
             // var seed = new DataSeed();
 
