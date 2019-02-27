@@ -25,9 +25,9 @@ namespace LogParser.Service
         }
 
 
-        public IEnumerable<LogFile> FindNewFiles(string folderPath)
+        public IEnumerable<LogFile> FindNewFiles(string folderPath,string searchPattern)
         {
-            var filesInFolder = this.GetFilesInFolder(folderPath);
+            var filesInFolder = this.GetFilesInFolder(folderPath, searchPattern);
             var filesInDatabase = this.GetLogFiles();
             var newFiles = filesInFolder.Where(p => !filesInDatabase.Any(p2 => p2.FilePath == p.FilePath & p2.FileSize == p.FileSize));
 
@@ -37,10 +37,10 @@ namespace LogParser.Service
         }
 
 
-        private IEnumerable<LogFile> GetFilesInFolder(string folderPath)
+        private IEnumerable<LogFile> GetFilesInFolder(string folderPath,string searchPattern)
         {
 
-            var files = this._searcher.ScanFolder(folderPath);
+            var files = this._searcher.ScanFolder(folderPath,searchPattern);
             var output = new List<LogFile>();
 
             foreach (var f in files)

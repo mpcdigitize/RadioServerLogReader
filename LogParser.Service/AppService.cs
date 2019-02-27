@@ -16,7 +16,7 @@ namespace LogParser.Service
         public void ScanFolder(string folderPath)
         {
             var fileProcessor = new FileProcessor();
-            var filesToProcess = fileProcessor.FindNewFiles(folderPath);
+            var filesToProcess = fileProcessor.FindNewFiles(folderPath,FileType.Log);
             var repo = new DisconnectedRepository();
             var ipDetails = repo.GetIpDetails();
             List<string> ipNumbers = ipDetails.Select(p => p.IpNumber).ToList();

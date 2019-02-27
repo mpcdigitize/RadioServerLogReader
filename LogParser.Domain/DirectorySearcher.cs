@@ -10,7 +10,7 @@ namespace LogParser.Domain
     public class DirectorySearcher
     {
 
-        private const string searchPattern = "*.log";
+        //private const string searchPattern = "*.log";
         private IEnumerable<String> _files;
 
 
@@ -22,7 +22,7 @@ namespace LogParser.Domain
         }
 
 
-        public IEnumerable<String> ScanFolder(string folderPath)
+        public IEnumerable<String> ScanFolder(string folderPath,string searchPattern)
         {
 
             Console.WriteLine(folderPath);

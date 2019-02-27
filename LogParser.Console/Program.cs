@@ -20,6 +20,13 @@ namespace LogParser
         static void Main(string[] args)
         {
 
+            Console.WriteLine(FileType.Log + " <> " + FileType.Txt + " <> " + FileType.Xml); 
+
+
+
+
+
+
             var reader = new BackupReader();
 
             var details = reader.ParseFile();

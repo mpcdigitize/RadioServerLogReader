@@ -25,10 +25,10 @@ namespace LogParser.Domain
         }
 
 
-        public void ScanFolder(string folderPath)
+        public void ScanFolder(string folderPath,string searchPattern)
         {
             this._files = new List<string>();
-            this._files = this._searcher.ScanFolder(folderPath);
+            this._files = this._searcher.ScanFolder(folderPath,searchPattern);
             this.ParseLogs();
 
         }
