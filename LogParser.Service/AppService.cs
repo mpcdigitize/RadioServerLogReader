@@ -13,12 +13,18 @@ namespace LogParser.Service
     public class AppService
     {
 
-        public void ScanFolder(string folderPath)
+        public void ScanFolder()
         {
-            var fileProcessor = new FileProcessor();
-            var filesToProcess = fileProcessor.FindNewFiles(folderPath,FileType.Log);
+            string searchPattern = SearchPattern.Log;
             var repo = new DisconnectedRepository();
+            var fileProcessor = new FileProcessor();
+
+            LocalSetting setting = repo.GetLocalSettings();
+            string folderPath = @"" + setting.FolderPath;
+            var filesToProcess = fileProcessor.FindNewFiles(folderPath,searchPattern);
+            
             var ipDetails = repo.GetIpDetails();
+
             List<string> ipNumbers = ipDetails.Select(p => p.IpNumber).ToList();
             List<string> scannedIpNumbers = new List<string>();
 
