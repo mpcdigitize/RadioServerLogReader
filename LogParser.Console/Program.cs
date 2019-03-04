@@ -22,11 +22,17 @@ namespace LogParser
 
             //Console.WriteLine(FileType.Log + " <> " + FileType.Txt + " <> " + FileType.Xml); 
 
+            var svc = new AppService();
+            var result = svc.GetBackups();
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
 
 
 
-
-            /*
+           /*
             var reader = new BackupReader();
 
             var details = reader.ParseFile();
@@ -56,22 +62,22 @@ namespace LogParser
             // var seed = new DataSeed();
 
             // var details = seed.SeedIpDetail();
-            var svc = new AppService();
+            //var svc = new AppService();
 
             //var repo = new DisconnectedRepository();
 
            // string pattern = SearchPattern.Log;
            // string path = @"C:\LogFiles\one";
 
-            svc.ScanFolder();
+            //svc.ScanFolder();
 
-            var result = svc.GetLogLines();
+           // var result = svc.GetLogLines();
 
 
-            foreach (var item in result)
-            {
-                Console.WriteLine(item.IpClient + " - " + item.IspProvider);
-            }
+           // foreach (var item in result)
+          //  {
+           //     Console.WriteLine(item.IpClient + " - " + item.IspProvider);
+           // }
 
             //foreach (var item in details)
             //{

@@ -315,7 +315,25 @@ namespace LogParser.Data
 
         }
 
+        public void ClearIpDetails()
+        {
 
+            using (var context = new AppContext())
+            {
+                var details = context.IpDetails.ToList();
+
+                foreach (var detail in details)
+                {
+                    context.Entry(detail).State = EntityState.Deleted;
+                }
+
+                context.SaveChanges();
+
+
+            }
+
+
+        }
 
 
 

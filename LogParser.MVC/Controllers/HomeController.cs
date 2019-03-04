@@ -428,6 +428,25 @@ namespace LogParserMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult CreateBackup()
+        {
+            var svc = new AppService();
+
+            svc.Backup();
+
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ClearDetails()
+        {
+            var svc = new AppService();
+
+            svc.ClearIpDetails();
+
+
+            return RedirectToAction("Index");
+        }
 
 
         public ActionResult CreateText()

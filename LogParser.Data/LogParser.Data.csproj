@@ -113,6 +113,10 @@
     <Compile Include="Migrations\201903041603333_remove_file_ext.Designer.cs">
       <DependentUpon>201903041603333_remove_file_ext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903041650156_backup_name.cs" />
+    <Compile Include="Migrations\201903041650156_backup_name.Designer.cs">
+      <DependentUpon>201903041650156_backup_name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -178,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903041603333_remove_file_ext.resx">
       <DependentUpon>201903041603333_remove_file_ext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903041650156_backup_name.resx">
+      <DependentUpon>201903041650156_backup_name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

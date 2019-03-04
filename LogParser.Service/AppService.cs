@@ -441,5 +441,13 @@ namespace LogParser.Service
 
         }
 
+        public void ClearIpDetails()
+        {
+            var repo = new DisconnectedRepository();
+            repo.ClearIpDetails();
+
+
+        }
+
     }
 }

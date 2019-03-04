@@ -1,9 +1,16 @@
 ﻿@model IEnumerable<LogParserMVC.Models.BackupModel>
 
+<input type="button" class="btn btn-info" value="Create Backup" onclick="location.href='@Url.Action("CreateBackup","Home")'" />
+<input type="button" class="btn btn-info" value="Clear Details" onclick="location.href='@Url.Action("ClearDetails","Home")'" />
+
+
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 <table class="table">
+
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FilePath)
@@ -11,15 +18,16 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FilePath)
-        </td>
-        <td>
-            @Html.ActionLink("Restore", "Restore", new { path = item.FilePath }) 
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilePath)
+            </td>
+            <td>
+                @Html.ActionLink("Restore", "Restore", new { path = item.FilePath })
+            </td>
+        </tr>
+    }
 
 </table>
