@@ -11,5 +11,6 @@ namespace LogParserMVC.Models
         public Guid SettingId { get; set; }
         public string FolderPath { get; set; }
         public string BackupFolder { get; set; }
+        public string BackupName { get; set; }
     }
 }

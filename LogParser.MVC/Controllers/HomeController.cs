@@ -435,7 +435,8 @@ namespace LogParserMVC.Controllers
 
                     SettingId = setting.SettingId,
                     FolderPath = setting.FolderPath,
-                    BackupFolder = setting.BackupFolder
+                    BackupFolder = setting.BackupFolder,
+                    BackupName = setting.BackupName
                 };
 
                 return View(settingModel);
@@ -472,7 +473,8 @@ namespace LogParserMVC.Controllers
 
                     SettingId = model.SettingId,
                     FolderPath = model.FolderPath,
-                    BackupFolder = model.BackupFolder
+                    BackupFolder = model.BackupFolder,
+                    BackupName = model.BackupName
                 };
 
 
