@@ -435,7 +435,6 @@ namespace LogParserMVC.Controllers
 
                     SettingId = setting.SettingId,
                     FolderPath = setting.FolderPath,
-                    FileExtension = setting.FileExtension,
                     BackupFolder = setting.BackupFolder
                 };
 
@@ -473,7 +472,6 @@ namespace LogParserMVC.Controllers
 
                     SettingId = model.SettingId,
                     FolderPath = model.FolderPath,
-                    FileExtension = model.FileExtension,
                     BackupFolder = model.BackupFolder
                 };
 
