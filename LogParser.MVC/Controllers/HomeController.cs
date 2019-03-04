@@ -438,11 +438,11 @@ namespace LogParserMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ClearDetails()
+        public ActionResult ClearTables()
         {
             var svc = new AppService();
 
-            svc.ClearIpDetails();
+            svc.ClearTables();
 
 
             return RedirectToAction("Index");

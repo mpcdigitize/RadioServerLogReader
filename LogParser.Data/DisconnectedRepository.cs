@@ -315,54 +315,25 @@ namespace LogParser.Data
 
         }
 
-        public void ClearIpDetails()
+        public void ClearTables()
         {
-
             using (var context = new AppContext())
             {
                 var details = context.IpDetails.ToList();
+                var files = context.LogFiles.ToList();
+                var lines = context.LogLines.ToList();
 
                 foreach (var detail in details)
                 {
                     context.Entry(detail).State = EntityState.Deleted;
                 }
 
-                context.SaveChanges();
-
-
-            }
-
-
-        }
-
-
-        public void ClearLogLines()
-        {
-
-            using (var context = new AppContext())
-            {
-                var lines = context.LogLines.ToList();
 
                 foreach (var line in lines)
                 {
                     context.Entry(line).State = EntityState.Deleted;
                 }
 
-                context.SaveChanges();
-
-
-            }
-
-
-        }
-
-
-        public void ClearLogFiles()
-        {
-
-            using (var context = new AppContext())
-            {
-                var files = context.LogFiles.ToList();
 
                 foreach (var file in files)
                 {
@@ -375,7 +346,10 @@ namespace LogParser.Data
             }
 
 
+
         }
+
+        
 
 
 

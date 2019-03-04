@@ -429,27 +429,42 @@ namespace LogParser.Service
             var repo = new DisconnectedRepository();
             var reader = new BackupReader();
 
-            var ipDetails = reader.ParseFile(filePath);
+            var ipDetails = reader.ParseIpDetails(filePath);
+            var files = reader.ParseLogFiles(filePath);
+            var lines = reader.ParseLogLines(filePath);
 
 
-            repo.ClearIpDetails();
+            repo.ClearTables();
 
             foreach (var detail in ipDetails)
             {
                 repo.AddNewIpDetail(detail);
             }
+
+   
+            foreach (var file in files)
+            {
+                repo.AddNewLogFile(file);
+            }
             
 
+            foreach (var line in lines)
+            {
+                repo.AddNewLogLine(line);
+            }
+
 
         }
 
-        public void ClearIpDetails()
+
+        public void ClearTables()
         {
             var repo = new DisconnectedRepository();
-            repo.ClearIpDetails();
-
+            repo.ClearTables();
 
         }
+
+      
 
     }
 }

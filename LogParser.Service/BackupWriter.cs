@@ -35,7 +35,7 @@ namespace LogParser.Service
 
             foreach (var item in _lines)
             {
-                data = new XElement("LogLines",
+                data = new XElement("LogLine",
                         new XElement("LogLineId", item.LogLineId),
                         new XElement("Date", item.Date),
                         new XElement("Time", item.Time),
@@ -54,7 +54,7 @@ namespace LogParser.Service
 
             foreach (var item in _files)
             {
-                data = new XElement("Files",
+                data = new XElement("File",
                         new XElement("LogFileId",item.LogFileId),
                         new XElement("FilePath", item.FilePath),
                         new XElement("FileName", item.FileName),
