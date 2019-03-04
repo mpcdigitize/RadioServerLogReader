@@ -336,6 +336,50 @@ namespace LogParser.Data
         }
 
 
+        public void ClearLogLines()
+        {
+
+            using (var context = new AppContext())
+            {
+                var lines = context.LogLines.ToList();
+
+                foreach (var line in lines)
+                {
+                    context.Entry(line).State = EntityState.Deleted;
+                }
+
+                context.SaveChanges();
+
+
+            }
+
+
+        }
+
+
+        public void ClearLogFiles()
+        {
+
+            using (var context = new AppContext())
+            {
+                var files = context.LogFiles.ToList();
+
+                foreach (var file in files)
+                {
+                    context.Entry(file).State = EntityState.Deleted;
+                }
+
+                context.SaveChanges();
+
+
+            }
+
+
+        }
+
+
+
+
 
     }
 }
