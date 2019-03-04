@@ -389,8 +389,10 @@ namespace LogParser.Service
         {
             var repo = new DisconnectedRepository();
             var ipDetails = repo.GetIpDetails();
+            var files = repo.GetLogFiles();
+            var lines = repo.GetLogLines();
             var setting = repo.GetLocalSettings();
-            var backupWriter = new BackupWriter(ipDetails);
+            var backupWriter = new BackupWriter(ipDetails,lines,files);
 
 
             var time = DateTime.Now.ToString("yyyy.dd.mm.HH.mm");

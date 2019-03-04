@@ -11,20 +11,57 @@ namespace LogParser.Service
     public class BackupWriter
     {
         IEnumerable<IpDetail> _details;
+        IEnumerable<LogLine> _lines;
+        IEnumerable<LogFile> _files;
         XElement data;
-        List<XElement> elements = new List<XElement>(); 
+        List<XElement> detailElements = new List<XElement>();
+        List<XElement> fileElements = new List<XElement>();
+        List<XElement> lineElements = new List<XElement>();
 
-        public BackupWriter(IEnumerable<IpDetail> details)
+        public BackupWriter(IEnumerable<IpDetail> details, IEnumerable<LogLine> lines, IEnumerable<LogFile> files)
         {
 
             this._details = details;
+            this._lines = lines;
+            this._files = files;
 
 
         }
 
+        
 
         public void CreateBackup(string filePath)
         {
+
+            foreach (var item in _lines)
+            {
+                data = new XElement("LogLines",
+                        new XElement("LogLineId", item.LogLineId),
+                        new XElement("Date", item.Date),
+                        new XElement("Time", item.Time),
+                        new XElement("IpNumber", item.IpNumber),
+                        new XElement("MediaItem", item.MediaItem),
+                        new XElement("Port", item.Port),
+                        new XElement("IpClient", item.IpClient),
+                        new XElement("Client", item.Client),
+                        new XElement("ClientVersion", item.ClientVersion),
+                        new XElement("Platform", item.Platform),
+                        new XElement("LogFileId", item.LogFileId));
+
+                lineElements.Add(data);
+            }
+
+
+            foreach (var item in _files)
+            {
+                data = new XElement("Files",
+                        new XElement("LogFileId",item.LogFileId),
+                        new XElement("FilePath", item.FilePath),
+                        new XElement("FileName", item.FileName),
+                        new XElement("FileSize", item.FileSize));
+
+                fileElements.Add(data);
+            }
 
 
             foreach (var item in this._details)
@@ -39,16 +76,20 @@ namespace LogParser.Service
                     new XElement("Alias", item.Alias),
                     new XElement("IsHidden", item.IsHidden));
 
-                elements.Add(data);
+                detailElements.Add(data);
             } 
 
 
 
             XDocument xmlDocument = new XDocument(
                 new XDeclaration("1.0", "utf-8", "yes"),
-                new XComment("IpDetails Backup"),
-                new XElement("IpDetails",
-                        elements));
+                new XElement("backup",
+                    new XElement("IpDetails",
+                        detailElements),
+                    new XElement("Files",
+                        fileElements),
+                    new XElement("LogLines",
+                        lineElements)));
 
 
 
