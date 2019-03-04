@@ -20,13 +20,13 @@ namespace LogParser
         static void Main(string[] args)
         {
 
-            Console.WriteLine(FileType.Log + " <> " + FileType.Txt + " <> " + FileType.Xml); 
+            //Console.WriteLine(FileType.Log + " <> " + FileType.Txt + " <> " + FileType.Xml); 
 
 
 
 
 
-
+            /*
             var reader = new BackupReader();
 
             var details = reader.ParseFile();
@@ -35,6 +35,8 @@ namespace LogParser
             {
                 Console.WriteLine(item.IpNumber + " - " + item.Location + " - " + item.IspProvider + " - " + item.IsHidden);
             }
+            */
+
 
             /*
             var repo = new DisconnectedRepository();
@@ -54,10 +56,22 @@ namespace LogParser
             // var seed = new DataSeed();
 
             // var details = seed.SeedIpDetail();
-            ////var svc = new AppService();
+            var svc = new AppService();
 
             //var repo = new DisconnectedRepository();
-            ////svc.ScanFolder(@"C:\LogFiles\one");
+
+           // string pattern = SearchPattern.Log;
+           // string path = @"C:\LogFiles\one";
+
+            svc.ScanFolder();
+
+            var result = svc.GetLogLines();
+
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item.IpClient + " - " + item.IspProvider);
+            }
 
             //foreach (var item in details)
             //{

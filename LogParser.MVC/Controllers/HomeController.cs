@@ -393,11 +393,9 @@ namespace LogParserMVC.Controllers
         public ActionResult Scan()
         {
             var svc = new AppService();
-            string path;
+            
 
-            path = @"C:\LogFiles\one";
-
-            svc.ScanFolder(path);
+            svc.ScanFolder();
 
 
             return RedirectToAction("Index");

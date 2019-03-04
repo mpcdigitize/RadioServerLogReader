@@ -10,7 +10,6 @@ namespace LogParser.Domain.Model
         [Key]
         public Guid SettingId { get; set; } = Guid.NewGuid();
         public string FolderPath { get; set; }
-        public string FileExtension { get; set; }
         public string BackupFolder { get; set; }
 
     }
