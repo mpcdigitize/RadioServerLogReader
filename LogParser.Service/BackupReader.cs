@@ -11,14 +11,12 @@ namespace LogParser.Service
     public class BackupReader
     {
 
-        public IEnumerable<IpDetail> ParseFile()
+        public IEnumerable<IpDetail> ParseFile(string filePath)
         {
             List<IpDetail> details = new List<IpDetail>();
-            string path;
+  
 
-            path = @"C:\backup\test_backup.xml";
-
-            XDocument.Load(path).Descendants("IpDetail").ToList().ForEach(
+            XDocument.Load(filePath).Descendants("IpDetail").ToList().ForEach(
                 XElement => details.Add(new IpDetail {
                                             IpDetailId = Guid.Parse(XElement.Element("IpDetailId").Value.ToString()),
                                             IpNumber = XElement.Element("IpNumber").Value.ToString(),

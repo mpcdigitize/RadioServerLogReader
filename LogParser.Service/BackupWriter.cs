@@ -23,7 +23,7 @@ namespace LogParser.Service
         }
 
 
-        public void CreateBackup()
+        public void CreateBackup(string filePath)
         {
 
 
@@ -53,7 +53,7 @@ namespace LogParser.Service
 
 
 
-            xmlDocument.Save(@"C:\backup\test_backup.xml");
+            xmlDocument.Save(filePath);
 
 
         }

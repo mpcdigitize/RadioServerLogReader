@@ -384,5 +384,62 @@ namespace LogParser.Service
 
         }
 
+
+        public void Backup()
+        {
+            var repo = new DisconnectedRepository();
+            var ipDetails = repo.GetIpDetails();
+            var setting = repo.GetLocalSettings();
+            var backupWriter = new BackupWriter(ipDetails);
+
+
+            var time = DateTime.Now.ToString("yyyy.dd.mm.HH.mm");
+
+            var path = setting.BackupFolder;
+            var fileName =path + setting.BackupName + time + BackupFormat.Xml;
+
+            backupWriter.CreateBackup(fileName);
+
+
+
+
+        }
+
+        public IEnumerable<string> GetBackups()
+        {
+
+            var repo = new DisconnectedRepository();
+
+            var directorySearcher = new DirectorySearcher();
+            var setting = repo.GetLocalSettings();
+
+            var result = directorySearcher.ScanFolder(setting.BackupFolder, SearchPattern.Xml);
+
+
+            return result;
+
+        }
+
+
+
+        public void Restore(string filePath)
+        {
+            var repo = new DisconnectedRepository();
+            var reader = new BackupReader();
+
+            var ipDetails = reader.ParseFile(filePath);
+
+
+            repo.ClearIpDetails();
+
+            foreach (var detail in ipDetails)
+            {
+                repo.AddNewIpDetail(detail);
+            }
+            
+
+
+        }
+
     }
 }
