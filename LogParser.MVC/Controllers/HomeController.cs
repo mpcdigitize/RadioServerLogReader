@@ -57,6 +57,22 @@ namespace LogParserMVC.Controllers
             return View(result);
         }
 
+        public ActionResult Backups()
+        {
+            var svc = new AppService();
+            var backups = svc.GetBackups();
+
+            var result = backups.Select(p => new BackupModel
+            {
+                FilePath = p
+            });
+
+            return View(result);
+        }
+
+
+
+
         public ActionResult IpHistory(string ipNumber)
         {
             var svc = new AppService();
@@ -396,6 +412,17 @@ namespace LogParserMVC.Controllers
             
 
             svc.ScanFolder();
+
+
+            return RedirectToAction("Index");
+        }
+
+
+        public ActionResult Restore(string path)
+        {
+            var svc = new AppService();
+
+            svc.Restore(path);
 
 
             return RedirectToAction("Index");
