@@ -13,17 +13,22 @@ namespace LogParser.Service
         IEnumerable<IpDetail> _details;
         IEnumerable<LogLine> _lines;
         IEnumerable<LogFile> _files;
+        LocalSetting _setting;
+
         XElement data;
         List<XElement> detailElements = new List<XElement>();
         List<XElement> fileElements = new List<XElement>();
         List<XElement> lineElements = new List<XElement>();
 
-        public BackupWriter(IEnumerable<IpDetail> details, IEnumerable<LogLine> lines, IEnumerable<LogFile> files)
+
+        public BackupWriter(IEnumerable<IpDetail> details, IEnumerable<LogLine> lines, IEnumerable<LogFile> files, LocalSetting setting)
         {
 
             this._details = details;
             this._lines = lines;
             this._files = files;
+            this._setting = setting;
+
 
 
         }
@@ -32,6 +37,11 @@ namespace LogParser.Service
 
         public void CreateBackup(string filePath)
         {
+
+            
+            
+
+
 
             foreach (var item in _lines)
             {

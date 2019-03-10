@@ -17,7 +17,7 @@ namespace LogParser.Data
     {
 
 
-        public AppContext() : base("name=ForTestingOnly")
+        public AppContext() : base("name=SQLX")
         {
 
             //string path = @"C:\github\LogParserMVC\LogParserMVC.Data\App_Data\";
@@ -25,9 +25,11 @@ namespace LogParser.Data
 
 
             //set up connection string with DataDirectory
-            /*
+          /*
             var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            //string relative = @"..\LogParser.Data\App_Data\";
             string relative = @"..\..\App_Data\";
+            //string relative = @"~\..\LogParser.Data\App_Data\";
             string absolute = Path.GetFullPath(Path.Combine(baseDirectory, relative));
             AppDomain.CurrentDomain.SetData("DataDirectory", absolute);
             */

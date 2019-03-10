@@ -11,6 +11,9 @@ namespace LogParser.Service
     public class BackupReader
     {
 
+       
+
+
         public IEnumerable<IpDetail> ParseIpDetails(string filePath)
         {
             List<IpDetail> details = new List<IpDetail>();

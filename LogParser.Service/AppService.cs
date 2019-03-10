@@ -392,7 +392,7 @@ namespace LogParser.Service
             var files = repo.GetLogFiles();
             var lines = repo.GetLogLines();
             var setting = repo.GetLocalSettings();
-            var backupWriter = new BackupWriter(ipDetails,lines,files);
+            var backupWriter = new BackupWriter(ipDetails,lines,files,setting);
 
 
             var time = DateTime.Now.ToString("yyyy.dd.mm.HH.mm");
@@ -411,11 +411,20 @@ namespace LogParser.Service
         {
 
             var repo = new DisconnectedRepository();
-
+            IEnumerable<string> result = new  List<string>();
             var directorySearcher = new DirectorySearcher();
             var setting = repo.GetLocalSettings();
 
-            var result = directorySearcher.ScanFolder(setting.BackupFolder, SearchPattern.Xml);
+
+            if (setting != null)
+            {
+
+                result = directorySearcher.ScanFolder(setting.BackupFolder, SearchPattern.Xml);
+            }
+
+ 
+
+            
 
 
             return result;
@@ -432,6 +441,7 @@ namespace LogParser.Service
             var ipDetails = reader.ParseIpDetails(filePath);
             var files = reader.ParseLogFiles(filePath);
             var lines = reader.ParseLogLines(filePath);
+
 
 
             repo.ClearTables();
@@ -452,6 +462,8 @@ namespace LogParser.Service
             {
                 repo.AddNewLogLine(line);
             }
+
+           
 
 
         }

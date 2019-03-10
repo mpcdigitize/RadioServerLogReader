@@ -323,6 +323,7 @@ namespace LogParser.Data
                 var files = context.LogFiles.ToList();
                 var lines = context.LogLines.ToList();
 
+
                 foreach (var detail in details)
                 {
                     context.Entry(detail).State = EntityState.Deleted;
