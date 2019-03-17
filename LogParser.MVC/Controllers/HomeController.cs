@@ -240,13 +240,16 @@ namespace LogParserMVC.Controllers
         }
 
 
-        public ActionResult SelectedByClient(string client)
+        public ActionResult SelectedByClient(string client, int? page)
         {
             var svc = new AppService();
             //string ip = "100.2.132.189";
             var lines = svc.GetIpHistoryByClient(client);
 
-            ViewBag.LinesCount = lines.Count();
+
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
+
 
             //TempData["msg"] = "<script>alert(" + lines.Count() + ");</script>";
 
@@ -269,7 +272,7 @@ namespace LogParserMVC.Controllers
             });
 
 
-            return View(result);
+            return View(result.ToPagedList(pageNumber, pageSize));
         }
 
 

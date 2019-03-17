@@ -1,5 +1,6 @@
 ﻿@model PagedList.IPagedList<LogParserMVC.Models.LogLineModel>
 @using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css">
 
 @{
     ViewBag.Title = "Logs";
@@ -8,6 +9,8 @@
 <h2>Logs</h2>
 
 <input type="button" class="btn btn-info" value="Scan" onclick="location.href='@Url.Action("Scan","Home")'" />
+
+<p>
 
 <table class="table">
     <tr>
