@@ -17,7 +17,7 @@ namespace LogParser.Data
     {
 
 
-        public AppContext() : base("name=SQLX")
+        public AppContext() : base("name=ForTestingOnly")
         {
 
             //string path = @"C:\github\LogParserMVC\LogParserMVC.Data\App_Data\";

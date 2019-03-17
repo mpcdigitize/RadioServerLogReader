@@ -1,4 +1,7 @@
-﻿@model IEnumerable<LogParserMVC.Models.IpDetailModel>
+﻿@model PagedList.IPagedList<LogParserMVC.Models.IpDetailModel>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css">
+
 
 @{
     ViewBag.Title = "IpDetails";
@@ -10,66 +13,71 @@
     @Html.ActionLink("Create New", "CreateProvider", "Home")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IpNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IspProvider)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.State)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Alias)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsHidden)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IpDetailId)
-        </th>
-        <th></th>
-    </tr>
+ 
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].IpNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].IspProvider)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Alias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].IsHidden)
+            </th>
+            <th>
+                @Html.HiddenFor(model => model[0].IpDetailId)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink(@"" + item.IpNumber, "EditIpDetail", "Home", new { id = item.IpDetailId }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IspProvider)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Alias)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsHidden)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IpDetailId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+
+   
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(@"" + item.IpNumber, "EditIpDetail", "Home", new { id = item.IpDetailId }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IspProvider)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsHidden)
+            </td>
+            <td>
+                @Html.HiddenFor(modelItem => item.IpDetailId)
+            </td>
+
+        </tr>
+    }
 
 </table>
+ <br/>
+
+Page @(Model.PageCount < Model.PageNumber ? 0:Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action ("IpDetails", new {page}))

@@ -8,6 +8,8 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+
 
 namespace LogParserMVC.Controllers
 {
@@ -329,10 +331,15 @@ namespace LogParserMVC.Controllers
         }
 
 
-        public ActionResult IpDetails()
+        public ActionResult IpDetails(int? page)
         {
             var svc = new AppService();
             var details = svc.GetIpDetails();
+
+            //int page = 1;
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+
 
             var result = details.Select(p => new IpDetailModel
             {
@@ -346,7 +353,7 @@ namespace LogParserMVC.Controllers
                 IsHidden = p.IsHidden
             });
 
-            return View(result);
+            return View(result.ToPagedList(pageNumber,pageSize));
 
 
 
