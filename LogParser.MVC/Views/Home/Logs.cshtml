@@ -1,4 +1,5 @@
-﻿@model IEnumerable<LogParserMVC.Models.LogLineModel>
+﻿@model PagedList.IPagedList<LogParserMVC.Models.LogLineModel>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Logs";
@@ -6,82 +7,88 @@
 
 <h2>Logs</h2>
 
-<input type="button" class="btn btn-info" value="Scan" onclick="location.href='@Url.Action("Scan","Home")'"/>
+<input type="button" class="btn btn-info" value="Scan" onclick="location.href='@Url.Action("Scan","Home")'" />
 <input type="button" class="btn btn-info" value="Create TXT" onclick="location.href='@Url.Action("CreateText","Home")'" />
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.DisplayNameFor(model => model[0].Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Time)
+            @Html.DisplayNameFor(model => model[0].Time)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MediaItem)
+            @Html.DisplayNameFor(model => model[0].MediaItem)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IpClient)
+            @Html.DisplayNameFor(model => model[0].IpClient)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Client)
+            @Html.DisplayNameFor(model => model[0].Client)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClientVersion)
+            @Html.DisplayNameFor(model => model[0].ClientVersion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Platform)
+            @Html.DisplayNameFor(model => model[0].Platform)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IspProvider)
+            @Html.DisplayNameFor(model => model[0].IspProvider)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Country)
+            @Html.DisplayNameFor(model => model[0].Country)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Location)
+            @Html.DisplayNameFor(model => model[0].Location)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.State)
+            @Html.DisplayNameFor(model => model[0].State)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink(item.Date, "SelectedByDate", new { date = item.Date })
-        </td>
-        <td>
-            @Html.ActionLink(item.Time, "SelectedByTime", new { time = item.Time })
-        </td>
-        <td>
-            @Html.ActionLink(item.MediaItem, "SelectedByMedia", new { media = item.MediaItem })
-        </td>
-        <td>
-            @Html.ActionLink(item.IpClient, "SelectedByIpNumber", new { ipNumber = item.IpClient})
-        </td>
-        <td>
-            @Html.ActionLink(item.Client, "SelectedByClient", new { client = item.Client })
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClientVersion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Platform)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IspProvider)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Date, "SelectedByDate", new { date = item.Date })
+            </td>
+            <td>
+                @Html.ActionLink(item.Time, "SelectedByTime", new { time = item.Time })
+            </td>
+            <td>
+                @Html.ActionLink(item.MediaItem, "SelectedByMedia", new { media = item.MediaItem })
+            </td>
+            <td>
+                @Html.ActionLink(item.IpClient, "SelectedByIpNumber", new { ipNumber = item.IpClient })
+            </td>
+            <td>
+                @Html.ActionLink(item.Client, "SelectedByClient", new { client = item.Client })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientVersion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Platform)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IspProvider)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+        </tr>
+    }
 
 </table>
+
+<br />
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Logs", new { page }))

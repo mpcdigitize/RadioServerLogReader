@@ -31,11 +31,13 @@ namespace LogParserMVC.Controllers
             return View();
         }
 
-        public ActionResult Logs()
+        public ActionResult Logs(int? page)
         {
             var svc = new AppService();
             var lines = svc.GetLogLines().Where(p => p.IsHidden == false);
 
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
 
 
             var result = lines.Select(p => new LogLineModel
@@ -56,7 +58,7 @@ namespace LogParserMVC.Controllers
             });
 
 
-            return View(result);
+            return View(result.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Backups()
@@ -336,8 +338,8 @@ namespace LogParserMVC.Controllers
             var svc = new AppService();
             var details = svc.GetIpDetails();
 
-            //int page = 1;
-            int pageSize = 10;
+   
+            int pageSize = 20;
             int pageNumber = (page ?? 1);
 
 
