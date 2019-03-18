@@ -176,15 +176,15 @@ namespace LogParserMVC.Controllers
         }
 
 
-        public ActionResult SelectedByTime(string time)
+        public ActionResult SelectedByTime(string time,int? page)
         {
             var svc = new AppService();
-            //string ip = "100.2.132.189";
             var lines = svc.GetIpHistoryByTime(time);
 
-            ViewBag.LinesCount = lines.Count();
 
-            //TempData["msg"] = "<script>alert(" + lines.Count() + ");</script>";
+
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
 
             var result = lines.Select(p => new LogLineModel
             {
@@ -205,11 +205,11 @@ namespace LogParserMVC.Controllers
             });
 
 
-            return View(result);
+            return View(result.ToPagedList(pageNumber, pageSize));
         }
 
 
-        public ActionResult SelectedByMedia(string media)
+        public ActionResult SelectedByMedia(string media,int? page)
         {
             var svc = new AppService();
             //string ip = "100.2.132.189";
@@ -217,7 +217,9 @@ namespace LogParserMVC.Controllers
 
             ViewBag.LinesCount = lines.Count();
 
-            //TempData["msg"] = "<script>alert(" + lines.Count() + ");</script>";
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
+
 
             var result = lines.Select(p => new LogLineModel
             {
@@ -238,7 +240,7 @@ namespace LogParserMVC.Controllers
             });
 
 
-            return View(result);
+            return View(result.ToPagedList(pageNumber, pageSize));
         }
 
 
