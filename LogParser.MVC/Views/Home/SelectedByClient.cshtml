@@ -2,9 +2,7 @@
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -41,7 +39,7 @@
             @Html.DisplayNameFor(model => model[0].State)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model[0].IpDetailId)
+            @Html.HiddenFor(model => model[0].IpDetailId)
         </th>
         <th></th>
     </tr>
@@ -83,12 +81,7 @@
                 @Html.DisplayFor(modelItem => item.State)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IpDetailId)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.HiddenFor(modelItem => item.IpDetailId)
             </td>
         </tr>
     }

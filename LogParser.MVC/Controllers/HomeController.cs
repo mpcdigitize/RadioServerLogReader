@@ -143,13 +143,14 @@ namespace LogParserMVC.Controllers
         }
 
 
-        public ActionResult SelectedByIpNumber(string ipNumber)
+        public ActionResult SelectedByIpNumber(string ipNumber,int? page)
         {
             var svc = new AppService();
             //string ip = "100.2.132.189";
             var lines = svc.GetIpHistoryByIpNumber(ipNumber);
 
-           
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
 
             var result = lines.Select(p => new LogLineModel
             {
@@ -170,7 +171,7 @@ namespace LogParserMVC.Controllers
             });
 
 
-            return View(result);
+            return View(result.ToPagedList(pageNumber, pageSize));
         }
 
 
