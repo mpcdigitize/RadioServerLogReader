@@ -15,7 +15,7 @@ namespace LogParserMVC.Models
 
         public string IpDetailId { get; set; }
 
-        [Display(Name = "ISP Provider")]
+        [Display(Name = "Provider")]
         public string IspProvider { get; set; }
 
         public string Country { get; set; }

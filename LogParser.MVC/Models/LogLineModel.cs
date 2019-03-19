@@ -14,6 +14,8 @@ namespace LogParserMVC.Models
 
         [Display(Name = "Media")]
         public string MediaItem { get; set; }
+
+        [Display(Name = "IP Number")]
         public string IpClient { get; set; }
         public string Client { get; set; }
 
@@ -21,7 +23,7 @@ namespace LogParserMVC.Models
         public string ClientVersion { get; set; }
         public string Platform { get; set; }
 
-        [Display(Name = "ISP Provider")]
+        [Display(Name = "Provider")]
         public string IspProvider { get; set; }
         public string Country { get; set; }
         public string Location { get; set; }
