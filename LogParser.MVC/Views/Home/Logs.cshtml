@@ -30,9 +30,6 @@
             @Html.DisplayNameFor(model => model[0].Client)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model[0].Platform)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model[0].IspProvider)
         </th>
         <th>
@@ -64,9 +61,6 @@
             </td>
             <td>
                 @Html.ActionLink(item.Client, "SelectedByClient", new { client = item.Client })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Platform)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IspProvider)
