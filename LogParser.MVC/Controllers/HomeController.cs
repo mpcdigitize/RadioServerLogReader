@@ -434,6 +434,17 @@ namespace LogParserMVC.Controllers
         }
 
 
+        public ActionResult RestoreDetails(string path)
+        {
+            var svc = new AppService();
+
+            svc.RestoreDetails(path);
+
+
+            return RedirectToAction("Index");
+        }
+
+
         public ActionResult Restore(string path)
         {
             var svc = new AppService();
@@ -443,6 +454,17 @@ namespace LogParserMVC.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult CreateBackupDetail()
+        {
+            var svc = new AppService();
+
+            svc.BackupDetails();
+
+
+            return RedirectToAction("Index");
+        }
+
 
         public ActionResult CreateBackup()
         {

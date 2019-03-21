@@ -33,7 +33,37 @@ namespace LogParser.Service
 
         }
 
-        
+        public void BackupIpDetails(string filePath)
+        { 
+
+            foreach (var item in this._details)
+            {
+                data = new XElement("IpDetail",
+                    new XElement("IpDetailId", item.IpDetailId),
+                    new XElement("IpNumber", item.IpNumber),
+                    new XElement("IspProvider", item.IspProvider),
+                    new XElement("Country", item.Country),
+                    new XElement("Location", item.Location),
+                    new XElement("State", item.State),
+                    new XElement("Alias", item.Alias),
+                    new XElement("IsHidden", item.IsHidden));
+
+                detailElements.Add(data);
+            }
+
+
+
+            XDocument xmlDocument = new XDocument(
+                new XDeclaration("1.0", "utf-8", "yes"),
+                new XElement("backup",
+                    new XElement("IpDetails",
+                        detailElements)));
+
+
+            xmlDocument.Save(filePath);
+
+
+        }
 
         public void CreateBackup(string filePath)
         {

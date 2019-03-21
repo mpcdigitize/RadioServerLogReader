@@ -407,6 +407,29 @@ namespace LogParser.Service
 
         }
 
+
+        public void BackupDetails()
+        {
+            var repo = new DisconnectedRepository();
+            var ipDetails = repo.GetIpDetails();
+            var files = repo.GetLogFiles();
+            var lines = repo.GetLogLines();
+            var setting = repo.GetLocalSettings();
+            var backupWriter = new BackupWriter(ipDetails, lines, files, setting);
+
+
+            var time = DateTime.Now.ToString("yyyy.dd.mm.HH.mm");
+
+            var path = setting.BackupFolder;
+            var fileName = path + setting.BackupName + "_details_" + time + BackupFormat.Xml;
+
+            backupWriter.BackupIpDetails(fileName);
+
+
+
+
+        }
+
         public IEnumerable<string> GetBackups()
         {
 
@@ -431,6 +454,29 @@ namespace LogParser.Service
 
         }
 
+        public void RestoreDetails(string filePath)
+        {
+            var repo = new DisconnectedRepository();
+            var reader = new BackupReader();
+
+            var ipDetails = reader.ParseIpDetails(filePath);
+           
+
+
+
+            repo.ClearDetailTable();
+
+            foreach (var detail in ipDetails)
+            {
+                repo.AddNewIpDetail(detail);
+            }
+
+
+          
+
+
+
+        }
 
 
         public void Restore(string filePath)
