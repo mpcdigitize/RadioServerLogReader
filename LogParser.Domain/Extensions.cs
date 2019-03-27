@@ -73,7 +73,7 @@ namespace LogParser.Domain
                 int closingParenthesis = fifthPart.IndexOf(")");
 
 
-                logLine.Date = firstPart.Substring(0, 10).Trim();
+                logLine.Date = DateTime.Parse(firstPart.Substring(0, 10).Trim());
                 logLine.Time = firstPart.Substring(11, 9).Trim();
                 logLine.IpNumber = firstPart.Substring(20, lenFirstPart-20).Trim();
                 logLine.MediaItem = secondPart.Substring(4, secondSplit - 4).Trim();

@@ -117,6 +117,10 @@
     <Compile Include="Migrations\201903041650156_backup_name.Designer.cs">
       <DependentUpon>201903041650156_backup_name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903270133070_change_dates.cs" />
+    <Compile Include="Migrations\201903270133070_change_dates.Designer.cs">
+      <DependentUpon>201903270133070_change_dates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903041650156_backup_name.resx">
       <DependentUpon>201903041650156_backup_name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903270133070_change_dates.resx">
+      <DependentUpon>201903270133070_change_dates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

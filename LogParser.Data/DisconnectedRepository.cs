@@ -157,6 +157,7 @@ namespace LogParser.Data
             using (var context = new AppContext())
             {
                 var result = context.LogFiles.ToList();
+
                 return result;
 
 
@@ -184,10 +185,15 @@ namespace LogParser.Data
         public IEnumerable<LogLine> GetLogsByDate(string date)
         {
 
+            DateTime parsedDate = new DateTime();
+
+            parsedDate = DateTime.Parse(date);
+
             using (var context = new AppContext())
             {
                 var result = context.LogLines
-                                .Where(p => p.Date == date).ToList();
+                                .Where(p => p.Date == parsedDate)
+                                .OrderByDescending(p => p.Date).ToList();
                 return result;
 
 
@@ -218,7 +224,8 @@ namespace LogParser.Data
             using (var context = new AppContext())
             {
                 var result = context.LogLines
-                                .Where(p => p.MediaItem == media).ToList();
+                                .Where(p => p.MediaItem == media)
+                                .OrderByDescending(p => p.Date).ToList();
                 return result;
 
 
@@ -234,7 +241,8 @@ namespace LogParser.Data
             using (var context = new AppContext())
             {
                 var result = context.LogLines
-                                .Where(p => p.Client == client).ToList();
+                                .Where(p => p.Client == client)
+                                .OrderByDescending(p => p.Date).ToList();
                 return result;
 
 
@@ -249,8 +257,10 @@ namespace LogParser.Data
 
             using (var context = new AppContext())
             {
-                var result = context.LogLines;
-                return result.ToList();
+                var result = context.LogLines
+                            .OrderByDescending(p => p.Date).ToList();
+
+                return result;
 
 
             }

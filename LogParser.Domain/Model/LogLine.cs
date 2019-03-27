@@ -20,7 +20,7 @@ namespace LogParser.Domain.Model
 
         [Key]
         public Guid LogLineId { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string Time { get; set; }
         public string IpNumber { get; set; }
         public string MediaItem { get; set; }

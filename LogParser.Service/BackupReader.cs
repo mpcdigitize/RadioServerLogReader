@@ -49,7 +49,7 @@ namespace LogParser.Service
                 XElement => lines.Add(new LogLine
                 {
                     LogLineId = Guid.Parse(XElement.Element("LogLineId").Value.ToString()),
-                    Date  = XElement.Element("Date").Value.ToString(),
+                    Date  = DateTime.Parse(XElement.Element("Date").Value.ToString()),
                     Time = XElement.Element("Time").Value.ToString(),
                     IpNumber = XElement.Element("IpNumber").Value.ToString(),
                     MediaItem = XElement.Element("MediaItem").Value.ToString(),

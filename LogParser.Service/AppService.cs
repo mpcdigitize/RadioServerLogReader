@@ -90,7 +90,7 @@ namespace LogParser.Service
 
             var result = lines.Select(p => new LogLineView
             {
-                Date = p.Date,
+                Date = p.Date.ToString(),
                 Time = p.Time,
                 IpClient = p.IpClient,
                 MediaItem = p.MediaItem,
@@ -186,7 +186,7 @@ namespace LogParser.Service
 
             var result = lines.Select(p => new LogLineView
             {
-                Date = p.Date,
+                Date = p.Date.ToString(),
                 Time = p.Time,
                 IpClient = p.IpClient,
                 MediaItem = p.MediaItem,
@@ -217,7 +217,7 @@ namespace LogParser.Service
 
             var result = lines.Select(p => new LogLineView
             {
-                Date = p.Date,
+                Date = p.Date.ToString(),
                 Time = p.Time,
                 IpClient = p.IpClient,
                 MediaItem = p.MediaItem,
@@ -249,7 +249,7 @@ namespace LogParser.Service
 
             var result = lines.Select(p => new LogLineView
             {
-                Date = p.Date,
+                Date = p.Date.ToString(),
                 Time = p.Time,
                 IpClient = p.IpClient,
                 MediaItem = p.MediaItem,
@@ -281,7 +281,7 @@ namespace LogParser.Service
 
             var result = lines.Select(p => new LogLineView
             {
-                Date = p.Date,
+                Date = p.Date.ToString(),
                 Time = p.Time,
                 IpClient = p.IpClient,
                 MediaItem = p.MediaItem,
@@ -313,7 +313,7 @@ namespace LogParser.Service
 
             var result = lines.Select(p => new LogLineView
             {
-                Date = p.Date,
+                Date = p.Date.ToString(),
                 Time = p.Time,
                 IpClient = p.IpClient,
                 MediaItem = p.MediaItem,
