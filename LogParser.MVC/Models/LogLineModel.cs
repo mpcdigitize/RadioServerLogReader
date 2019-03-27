@@ -9,6 +9,7 @@ namespace LogParserMVC.Models
     public class LogLineModel
     {
 
+      
         public string Date { get; set; }
         public string Time { get; set; }
 
