@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using LogParser.Data;
 
-namespace LogParser.Service
+
+namespace LogParser.Domain.Searcher
 {
     public class FileProcessor
     {

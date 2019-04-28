@@ -42,10 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppService.cs" />
-    <Compile Include="BackupReader.cs" />
-    <Compile Include="BackupWriter.cs" />
-    <Compile Include="FileProcessor.cs" />
-    <Compile Include="LogProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

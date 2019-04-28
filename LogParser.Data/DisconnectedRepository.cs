@@ -172,7 +172,9 @@ namespace LogParser.Data
             using (var context = new AppContext())
             {
                 var result = context.LogLines
-                                .Where(p => p.IpClient == ipNumber).ToList();
+                                .Where(p => p.IpClient == ipNumber)
+                                .Where(p => p.Client !="Downcast" )
+                                .OrderByDescending(p => p.Date).ToList();
                 return result;
 
 
@@ -193,6 +195,7 @@ namespace LogParser.Data
             {
                 var result = context.LogLines
                                 .Where(p => p.Date == parsedDate)
+                                .Where(p => p.Client != "Downcast")
                                 .OrderByDescending(p => p.Date).ToList();
                 return result;
 
@@ -225,6 +228,7 @@ namespace LogParser.Data
             {
                 var result = context.LogLines
                                 .Where(p => p.MediaItem == media)
+                                .Where(p => p.Client != "Downcast")
                                 .OrderByDescending(p => p.Date).ToList();
                 return result;
 
@@ -242,6 +246,7 @@ namespace LogParser.Data
             {
                 var result = context.LogLines
                                 .Where(p => p.Client == client)
+                                 .Where(p => p.Client != "Downcast")
                                 .OrderByDescending(p => p.Date).ToList();
                 return result;
 
@@ -258,6 +263,7 @@ namespace LogParser.Data
             using (var context = new AppContext())
             {
                 var result = context.LogLines
+                            .Where(p => p.Client != "Downcast")
                             .OrderByDescending(p => p.Date).ToList();
 
                 return result;

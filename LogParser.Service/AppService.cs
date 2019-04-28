@@ -1,6 +1,8 @@
 ﻿using LogParser.Data;
 using LogParser.Domain;
+using LogParser.Domain.Backup;
 using LogParser.Domain.Model;
+using LogParser.Domain.Searcher;
 using LogParser.Domain.ViewModel;
 using System;
 using System.Collections.Generic;
