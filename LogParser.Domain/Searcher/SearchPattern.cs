@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LogParser.Domain
+namespace LogParser.Domain.Searcher
 {
     public static class SearchPattern
     {

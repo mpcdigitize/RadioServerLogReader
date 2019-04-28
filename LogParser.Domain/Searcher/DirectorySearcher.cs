@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogParser.Domain
+namespace LogParser.Domain.Searcher
 {
     public class DirectorySearcher
     {

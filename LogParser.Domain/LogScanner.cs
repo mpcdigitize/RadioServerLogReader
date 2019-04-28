@@ -1,9 +1,7 @@
 ﻿using LogParser.Domain.Model;
-using System;
+using LogParser.Domain.LogParser;
+using LogParser.Domain.Searcher;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogParser.Domain
 {
@@ -18,8 +16,8 @@ namespace LogParser.Domain
 
         public LogScanner()
         {
-            this._searcher = new DirectorySearcher();
-            this._parser = new Parser();
+            _searcher = new DirectorySearcher();
+            _parser = new Parser();
             
 
         }
